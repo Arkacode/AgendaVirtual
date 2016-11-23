@@ -66,7 +66,7 @@ public class AgendaFragment extends Fragment {
         adapter=new ListViewAdapter();
         listViewFeed.setAdapter(adapter);
 
-        ((MainActivity) getActivity()).setTitle("Agenda Virtual");
+        getActivity().setTitle("Agenda Virtual");
         return rootView;
     }
 
@@ -110,7 +110,7 @@ public class AgendaFragment extends Fragment {
             textViewCity.setText(noticias.get(position).getCity());
             String url = noticias.get(position).getImageLink();
             imageLoader.DisplayImage(url, imageViewFeed);
-
+            String teste;
             convertView.setTag(new Integer(position));
             convertView.setClickable(true);
             convertView.setOnClickListener(this);
