@@ -27,7 +27,7 @@ import java.util.List;
  * A simple {@link Fragment} subclass.
  */
 public class AgendaFragment extends Fragment {
-    String urlPub="http://172.16.24.236/feed"; // 192.168.1.69
+    String urlPub="http://testefilmes123.netai.net/"; // 192.168.1.69
     ListView listViewFeed;
     List<AgendaItem> noticias=new ArrayList<>();
     ListViewAdapter adapter;
