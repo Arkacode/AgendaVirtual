@@ -2,19 +2,15 @@ package pt.ipca.cm.agendavirtual;
 
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -27,7 +23,7 @@ import java.util.List;
  * A simple {@link Fragment} subclass.
  */
 public class AgendaFragment extends Fragment {
-    String urlPub="http://172.16.24.236/feed"; // 192.168.1.69
+    String urlPub="http://172.16.29.245/feed"; // 192.168.1.69
     ListView listViewFeed;
     List<AgendaItem> noticias=new ArrayList<>();
     ListViewAdapter adapter;
@@ -35,7 +31,7 @@ public class AgendaFragment extends Fragment {
 
     public AgendaFragment() {
         // Required empty public constructor
-//commit test
+
 
     }
 
@@ -103,14 +99,13 @@ public class AgendaFragment extends Fragment {
             if (convertView == null)
                 convertView = mInflater.inflate(R.layout.row_feed, null);
 
-            TextView textViewTitle=(TextView)convertView.findViewById(R.id.textViewTitle);
+            TextView textViewTitle=(TextView)convertView.findViewById(R.id.textViewTitleInfo);
             ImageView imageViewFeed = (ImageView) convertView.findViewById(R.id.imgPub);
             textViewTitle.setText(noticias.get(position).getTitle());
             TextView textViewCity = (TextView) convertView.findViewById(R.id.textViewDesc);
             textViewCity.setText(noticias.get(position).getCity());
             String url = noticias.get(position).getImageLink();
             imageLoader.DisplayImage(url, imageViewFeed);
-            String teste;
             convertView.setTag(new Integer(position));
             convertView.setClickable(true);
             convertView.setOnClickListener(this);
@@ -125,19 +120,24 @@ public class AgendaFragment extends Fragment {
             Log.d("NewsFeed","Clicked:"+noticias.get(position).getDatePub());
             Log.d("NewsFeed","Clicked:"+noticias.get(position).getLocation());
             Log.d("NewsFeed","Clicked:"+noticias.get(position).getImageLink());
-            /*Bundle bundle = new Bundle();
-            bundle.putString(WebViewFragment.EXTRA_URL,noticias.get(position).getUrl());
-            bundle.putString(WebViewFragment.EXTRA_TITLE,noticias.get(position).getTitle());
-
-            WebViewFragment webViewFragment=new WebViewFragment();
+            //inserir tudo num bundle a informação do publicação
+            Bundle bundle = new Bundle();
+            bundle.putString(InfoArticleFragment.EXTRA_TITLE,noticias.get(position).getTitle());
+            bundle.putString(InfoArticleFragment.EXTRA_DESC,noticias.get(position).getUrl());
+            bundle.putString(InfoArticleFragment.EXTRA_PUB_DATE,noticias.get(position).getDatePub().toString());
+            bundle.putString(InfoArticleFragment.EXTRA_LINK_IMAGE,noticias.get(position).getImageLink());
+            bundle.putString(InfoArticleFragment.EXTRA_CITY,noticias.get(position).getCity());
+            bundle.putString(InfoArticleFragment.EXTRA_LOCATION,noticias.get(position).getLocation());
+            //mudar de fragment
+            InfoArticleFragment infoArticleFragment = new InfoArticleFragment();
             FragmentManager fragmentManager=getFragmentManager();
-            webViewFragment.setArguments(bundle);
+            infoArticleFragment.setArguments(bundle);
             fragmentManager.
                     beginTransaction().
-                    replace(R.id.content_frame,webViewFragment).
+                    replace(R.id.content_frame,infoArticleFragment).
                     setTransitionStyle(FragmentTransaction.TRANSIT_FRAGMENT_FADE).
                     addToBackStack(null).
-                    commit();*/
+                    commit();
 
         }
     }

@@ -24,7 +24,7 @@
         <TextView
             android:text="Publicação 1"
             android:layout_width="wrap_content"
-            android:id="@+id/textViewTitle"
+            android:id="@+id/textViewTitleInfo"
             android:textAppearance="@android:style/TextAppearance.Material.Large"
             android:layout_toRightOf="@id/imgPub"
             android:layout_height="wrap_content"
@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/textViewDesc"
             android:layout_toRightOf="@id/imgPub"
-            android:layout_below="@id/textViewTitle"/>
+            android:layout_below="@id/textViewTitleInfo"/>
 
     </RelativeLayout>
 
