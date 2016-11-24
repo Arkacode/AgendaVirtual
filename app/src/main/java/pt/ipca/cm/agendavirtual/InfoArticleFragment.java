@@ -58,12 +58,13 @@ public class InfoArticleFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater,  ViewGroup container, Bundle savedInstanceState) {
-
         View rootView = inflater.inflate(R.layout.fragment_info_article, container, false);
         TextView textViewTitleInfo = (TextView) rootView.findViewById(R.id.textViewTitleInfo);
         textViewTitleInfo.setText(title);
         ImageView imageViewAgenda = (ImageView) rootView.findViewById(R.id.imageViewAgendaInfo);
         String url = link_image;
+        TextView textViewDescription = (TextView) rootView.findViewById(R.id.textViewDescInfo);
+        textViewDescription.setText(desc);
         imageLoader.DisplayImage(url, imageViewAgenda);
         ((MainActivity) getActivity()).setTitle(EXTRA_TITLE);
         return rootView;

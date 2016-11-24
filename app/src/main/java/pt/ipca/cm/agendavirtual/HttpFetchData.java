@@ -73,12 +73,14 @@ public class HttpFetchData extends AsyncTask<String,String,List<AgendaItem>> {
                 AgendaItem noticiaItem=new AgendaItem();
                 Element element=(Element) nodes.item(i);
                 NodeList title=element.getElementsByTagName("title");
+                NodeList description=element.getElementsByTagName("description");
                 NodeList link=element.getElementsByTagName("link");
                 NodeList city= element.getElementsByTagName("content:encoded");
                 NodeList location = element.getElementsByTagName("content:encoded");
                 NodeList image = element.getElementsByTagName("content:encoded");
                 NodeList pubDate = element.getElementsByTagName("pubDate");
                 //ir buscar o texto do xml do RSS
+                String xmlDescription = description.item(0).getTextContent();
                 String xmlImage = image.item(0).getTextContent();
                 String xmlLocation = location.item(0).getTextContent();
                 String xmlCity = city.item(0).getTextContent();
@@ -96,6 +98,7 @@ public class HttpFetchData extends AsyncTask<String,String,List<AgendaItem>> {
                     localidade = matcherLocation.group(1);
                 }
                 noticiaItem.setTitle(title.item(0).getTextContent());
+                noticiaItem.setDescription(description.item(0).getTextContent());
                 noticiaItem.setUrl(link.item(0).getTextContent());
                 noticiaItem.setImageLink(imagem);
                 noticiaItem.setCity(cidade);

@@ -9,11 +9,20 @@ import java.util.Date;
 public class AgendaItem {
 
     String title;
+    String description;
     String url;
     Date datePub;
     String imageLink;
     String city;
     String location;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public String getLocation() {
         return location;

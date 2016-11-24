@@ -116,6 +116,7 @@ public class AgendaFragment extends Fragment {
         @Override
         public void onClick(View v) {
             Integer position=(Integer) v.getTag();
+            Log.d("NewsFeed","Desc:"+noticias.get(position).getDescription());
             Log.d("NewsFeed","Clicked:"+noticias.get(position).getCity());
             Log.d("NewsFeed","Clicked:"+noticias.get(position).getDatePub());
             Log.d("NewsFeed","Clicked:"+noticias.get(position).getLocation());
@@ -123,7 +124,7 @@ public class AgendaFragment extends Fragment {
             //inserir tudo num bundle a informação do publicação
             Bundle bundle = new Bundle();
             bundle.putString(InfoArticleFragment.EXTRA_TITLE,noticias.get(position).getTitle());
-            bundle.putString(InfoArticleFragment.EXTRA_DESC,noticias.get(position).getUrl());
+            bundle.putString(InfoArticleFragment.EXTRA_DESC,noticias.get(position).getDescription());
             bundle.putString(InfoArticleFragment.EXTRA_PUB_DATE,noticias.get(position).getDatePub().toString());
             bundle.putString(InfoArticleFragment.EXTRA_LINK_IMAGE,noticias.get(position).getImageLink());
             bundle.putString(InfoArticleFragment.EXTRA_CITY,noticias.get(position).getCity());
