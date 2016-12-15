@@ -86,15 +86,19 @@ public class HttpFetchData extends AsyncTask<String,String,List<AgendaItem>> {
                 String xmlCity = city.item(0).getTextContent();
                 //regex do conteudo
                 Matcher matcherImagem = Pattern.compile("img src=\"([^\"]+)").matcher(xmlImage);
-                Matcher matcherCity = Pattern.compile("<div city=\"([^\"]+)").matcher(xmlCity);
-                Matcher matcherLocation = Pattern.compile("<div location=\"([^\"]+)").matcher(xmlLocation);
+                Matcher matcherCity = Pattern.compile("<div class=\"city\">(.+?)</div>").matcher(xmlCity);
+                Matcher matcherLocation = Pattern.compile("<div class=\"location\">(.+?)</div>").matcher(xmlLocation);
                 String imagem = "";
                 String localidade = "";
                 String cidade = "";
                 //conteudo
-                while (matcherCity.find() && matcherLocation.find() && matcherImagem.find()) {
+                while (matcherImagem.find()) {
                     imagem = matcherImagem.group(1);
+                }
+                while(matcherCity.find()){
                     cidade =  matcherCity.group(1);
+                }
+                while(matcherLocation.find()){
                     localidade = matcherLocation.group(1);
                 }
                 noticiaItem.setTitle(title.item(0).getTextContent());
@@ -103,7 +107,7 @@ public class HttpFetchData extends AsyncTask<String,String,List<AgendaItem>> {
                 noticiaItem.setImageLink(imagem);
                 noticiaItem.setCity(cidade);
                 noticiaItem.setLocation(localidade);
-                DateFormat formatter = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss zzz", Locale.ENGLISH);
+                DateFormat formatter = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss", Locale.ENGLISH);
                 Date date = formatter.parse(pubDate.item(0).getTextContent());
                 noticiaItem.setDatePub(date);
                 noticiaItemList.add(noticiaItem);

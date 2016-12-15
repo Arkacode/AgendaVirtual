@@ -7,14 +7,18 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +27,7 @@ import java.util.List;
  * A simple {@link Fragment} subclass.
  */
 public class AgendaFragment extends Fragment {
-    String urlPub="http://172.16.29.245/feed"; // 192.168.1.69
+    String urlPub="http://192.168.1.68/feed"; // 192.168.1.69
     ListView listViewFeed;
     List<AgendaItem> noticias=new ArrayList<>();
     ListViewAdapter adapter;
@@ -95,12 +99,21 @@ public class AgendaFragment extends Fragment {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-
             if (convertView == null)
-                convertView = mInflater.inflate(R.layout.row_feed, null);
+                convertView = mInflater.inflate(R.layout.row_feed, parent,false);
 
             TextView textViewTitle=(TextView)convertView.findViewById(R.id.textViewTitleInfo);
             ImageView imageViewFeed = (ImageView) convertView.findViewById(R.id.imgPub);
+            TextView textViewData=(TextView)convertView.findViewById(R.id.textViewData);
+            TextView textViewHora=(TextView)convertView.findViewById(R.id.textViewHora);
+            TextView textViewLocation=(TextView)convertView.findViewById(R.id.textViewLocation);
+            SimpleDateFormat simpleDate =  new SimpleDateFormat("dd/MM/yyyy");
+            SimpleDateFormat simpleHour =  new SimpleDateFormat("HH:mm");
+            String data = simpleDate.format(noticias.get(position).datePub);
+            String hora = simpleHour.format(noticias.get(position).datePub);
+            textViewData.setText(data);
+            textViewHora.setText(hora);
+            textViewLocation.setText(noticias.get(position).location);
             textViewTitle.setText(noticias.get(position).getTitle());
             TextView textViewCity = (TextView) convertView.findViewById(R.id.textViewDesc);
             textViewCity.setText(noticias.get(position).getCity());

@@ -1,25 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
         android:id="@+id/rowHolder"
+        android:layout_height="150dp"
+        android:background="@drawable/shadow_round"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:background="@drawable/shadow_round">
+        android:layout_alignParentStart="true">
 
         <ImageView
             app:srcCompat="@drawable/img1"
             android:id="@+id/imgPub"
             android:layout_alignParentTop="true"
             android:layout_alignParentStart="true"
-            android:layout_width="100dp"
-            android:layout_height="100dp" />
+            android:layout_width="150dp"
+            android:scaleType="fitXY"
+            android:layout_height="150dp" />
 
         <TextView
             android:text="Publicação 1"
@@ -28,15 +30,76 @@
             android:textAppearance="@android:style/TextAppearance.Material.Large"
             android:layout_toRightOf="@id/imgPub"
             android:layout_height="wrap_content"
-            android:lines="2" />
+            android:lines="2"
+            android:textColor="#03b300" />
+
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            app:srcCompat="@drawable/location"
+            android:id="@+id/location"
+            android:layout_below="@+id/textViewTitleInfo"
+            android:layout_toEndOf="@+id/imgPub" />
 
         <TextView
             android:text="TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textViewDesc"
-            android:layout_toRightOf="@id/imgPub"
-            android:layout_below="@id/textViewTitleInfo"/>
+            android:textColor="?attr/actionModeSplitBackground"
+            android:layout_alignBottom="@+id/location"
+            android:layout_toEndOf="@+id/location" />
+
+        <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewData"
+            android:textColor="?attr/actionModeSplitBackground"
+            android:layout_alignTop="@+id/date"
+            android:layout_toEndOf="@+id/date" />
+
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            app:srcCompat="@drawable/date"
+            android:id="@+id/date"
+            android:layout_below="@+id/location"
+            android:layout_toEndOf="@+id/imgPub" />
+
+        <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewHora"
+            android:textColor="?attr/actionModeSplitBackground"
+            android:layout_alignTop="@+id/hour"
+            android:layout_toEndOf="@+id/hour" />
+
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            app:srcCompat="@drawable/hour"
+            android:id="@+id/hour"
+            android:layout_below="@+id/textViewData"
+            android:layout_toEndOf="@+id/imgPub" />
+
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            app:srcCompat="@drawable/local"
+            android:id="@+id/imageView"
+            android:layout_below="@+id/textViewHora"
+            android:layout_toEndOf="@+id/imgPub" />
+
+        <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewLocation"
+            android:textColor="?attr/actionModeSplitBackground"
+            android:layout_below="@+id/hour"
+            android:layout_toEndOf="@+id/hour" />
 
     </RelativeLayout>
 
