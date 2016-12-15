@@ -27,7 +27,7 @@ import java.util.List;
  * A simple {@link Fragment} subclass.
  */
 public class AgendaFragment extends Fragment {
-    String urlPub="http://192.168.1.68/feed"; // 192.168.1.69
+    String urlPub="http://172.16.29.245/feed"; // 192.168.1.69
     ListView listViewFeed;
     List<AgendaItem> noticias=new ArrayList<>();
     ListViewAdapter adapter;
@@ -100,7 +100,7 @@ public class AgendaFragment extends Fragment {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             if (convertView == null)
-                convertView = mInflater.inflate(R.layout.row_feed, parent,false);
+                convertView = mInflater.inflate(R.layout.row_feed, null);
 
             TextView textViewTitle=(TextView)convertView.findViewById(R.id.textViewTitleInfo);
             ImageView imageViewFeed = (ImageView) convertView.findViewById(R.id.imgPub);

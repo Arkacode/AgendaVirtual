@@ -65,8 +65,16 @@ public class InfoArticleFragment extends Fragment {
         String url = link_image;
         TextView textViewDescription = (TextView) rootView.findViewById(R.id.textViewDescInfo);
         textViewDescription.setText(desc);
+        TextView textViewLocation = (TextView) rootView.findViewById(R.id.textViewLocationInfo);
+        textViewLocation.setText(location);
+        TextView textViewCity = (TextView) rootView.findViewById(R.id.textViewCityInfo);
+        textViewCity.setText(city);
+        TextView textViewDate = (TextView) rootView.findViewById(R.id.textViewDateInfo);
+        textViewDate.setText(pubDate);
+        TextView textViewHour = (TextView) rootView.findViewById(R.id.textViewHourInfo);
+        textViewHour.setText(pubDate);
         imageLoader.DisplayImage(url, imageViewAgenda);
-        ((MainActivity) getActivity()).setTitle(EXTRA_TITLE);
+        ((MainActivity) getActivity()).setTitle("Informação");
         return rootView;
     }
 

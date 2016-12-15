@@ -80,7 +80,6 @@ public class HttpFetchData extends AsyncTask<String,String,List<AgendaItem>> {
                 NodeList image = element.getElementsByTagName("content:encoded");
                 NodeList pubDate = element.getElementsByTagName("pubDate");
                 //ir buscar o texto do xml do RSS
-                String xmlDescription = description.item(0).getTextContent();
                 String xmlImage = image.item(0).getTextContent();
                 String xmlLocation = location.item(0).getTextContent();
                 String xmlCity = city.item(0).getTextContent();

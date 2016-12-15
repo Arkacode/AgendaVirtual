@@ -1,49 +1,153 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="pt.ipca.cm.agendavirtual.InfoArticleFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_alignParentTop="true"
+    android:layout_alignParentStart="true"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollView">
 
     <!-- TODO: Update blank fragment layout -->
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:id="@+id/holderAll">
 
-        <ImageView
+
+        <RelativeLayout
             android:layout_width="match_parent"
-            app:srcCompat="@drawable/load"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:id="@+id/imageViewAgendaInfo"
-            android:layout_height="200dp"
-            android:scaleType="fitXY"/>
+            android:layout_height="match_parent"
+            android:id="@+id/holderTop">
 
-        <TextView
-            android:text="TextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textViewTitleInfo"
-            android:layout_alignParentStart="true"
-            android:id="@+id/textViewDescInfo"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
-            android:textColor="@color/colorPrimaryDark"
-            android:textAlignment="viewStart" />
+            <TextView
+                android:text="TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textViewTitleInfo"
+                android:textSize="30sp"
+                android:layout_below="@+id/imageViewAgendaInfo"
+                android:layout_alignParentStart="true"
+                android:textColor="#03b300"
+                android:textAlignment="viewStart"
+                android:layout_marginLeft="10dp"
+                android:textStyle="normal|bold" />
 
-        <TextView
-            android:text="TextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textViewTitleInfo"
-            android:textSize="30sp"
-            android:layout_below="@+id/imageViewAgendaInfo"
-            android:layout_alignParentStart="true"
-            android:textColor="#03b300"
-            android:textAlignment="viewStart"
-            android:layout_marginLeft="10dp"
-            android:textStyle="normal|bold" />
+            <TextView
+                android:text="TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textViewTitleInfo"
+                android:layout_alignParentStart="true"
+                android:id="@+id/textViewDescInfo"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:textAlignment="viewStart"
+                android:layout_marginBottom="10dp"
+                android:paddingEnd="10dp" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                app:srcCompat="@drawable/load"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/imageViewAgendaInfo"
+                android:layout_height="200dp"
+                android:scaleType="fitXY"/>
+
+            <LinearLayout
+                android:id="@+id/linha"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:background="@color/colorPrimaryDark"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_height="1dp">
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="600dp"
+            android:id="@+id/holderInfo"
+            android:layout_below="@id/holderTop"
+            android:layout_marginTop="15dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/local"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                android:id="@+id/imageView3" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/location"
+                android:id="@+id/imageView4"
+                android:layout_below="@+id/imageView3"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="12dp" />
+
+            <TextView
+                android:text="TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textViewCityInfo"
+                android:layout_alignBottom="@+id/imageView4"
+                android:layout_alignStart="@+id/textViewLocationInfo" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/date"
+                android:id="@+id/imageView5"
+                android:layout_marginTop="12dp"
+                android:layout_below="@+id/imageView4"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:text="TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textViewDateInfo"
+                android:layout_alignBottom="@+id/imageView5"
+                android:layout_alignStart="@+id/textViewCityInfo" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/hour"
+                android:id="@+id/imageView6"
+                android:layout_marginTop="12dp"
+                android:layout_below="@+id/imageView5"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:text="TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="13dp"
+                android:id="@+id/textViewLocationInfo"
+                android:layout_above="@+id/imageView4"
+                android:layout_toEndOf="@+id/imageView3" />
+
+            <TextView
+                android:text="TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textViewHourInfo"
+                android:layout_alignBottom="@+id/imageView6"
+                android:layout_alignStart="@+id/textViewDateInfo" />
+        </RelativeLayout>
+
 
     </RelativeLayout>
-</FrameLayout>
+</ScrollView>
